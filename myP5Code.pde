@@ -10,17 +10,42 @@ setup = function() {
 draw = function(){
 
 };
-
+var count=0;
 //🟢mouseClicked Function - will run when mouse is clicked
-mouseClicked = function(){
-drawHorseW(200, 300);
-drawHorseB(400, 200);
-drawChess1(200, 400);
 
+//individual clicks first 3
+mouseClicked = function(){
+if(count==0){
+drawHorseW(200, 300);
+count=1;
+}
+else if (count==1){
+drawHorseB(400, 200);
+count=2;
+}
+else if (count==2){
+drawChess1(450, 300);
+count=3;
 }
 
+//individual clicks random
+else{
+    
+drawChess1(random(0,600), random(0,400));
+drawChess1(random(0,600), random(0,400));
+drawChess1(random(0,600), random(0,400));
+drawChess1(random(0,600), random(0,400));
+drawChess1(random(0,600), random(0,400));
+drawChess1(random(0,600), random(0,400));
+drawChess1(random(0,600), random(0,400));
+
+}
+};
+
+//variables for each text emoji
 var drawHorseW = function(horseWX, horseWY){
 textSize(80)
+fill(255,255,255)
 text("♘", horseWX, horseWY);
 }
 
@@ -31,11 +56,14 @@ fill(0,0,0)
 text("♞", horseBX, horseBY);
 }
 
-vardrawChess1 = function(chess1X, chess1Y){
+var drawChess1 = function(chess1X, chess1Y){
 textSize(80)
+fill(0,0,0)
 text("♙", chess1X, chess1Y);
 
 }
+
+
 
 
 
